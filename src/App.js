@@ -27,6 +27,7 @@ const emojiDictionary = {
 };
 
 let emojiList = Object.keys(emojiDictionary);
+let emojiStrList = Object.values(emojiDictionary);
 
 export default function App() {
   let [meaning, setMeaning] = useState("");
@@ -34,7 +35,7 @@ export default function App() {
     let userInput = event.target.value;
     let meaning = emojiDictionary[userInput];
     // console.log(meaning);
-    if (meaning === "undefined") {
+    if (!emojiStrList.includes(meaning)) {
       meaning = "We don't have it in our database";
     }
     setMeaning(meaning);
